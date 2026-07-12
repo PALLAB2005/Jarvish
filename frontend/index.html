@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Assistant - Developed by PALLAB BAG</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Premium Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Web Icon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- Core Application Logic -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">JARVIS</div>
+        <div class="status-panel">
+            <div class="lang-select-wrapper">
+                <select id="langSelect" class="lang-select">
+                    <option value="en">English (US)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="es">Español (Spanish)</option>
+                    <option value="fr">Français (French)</option>
+                    <option value="de">Deutsch (German)</option>
+                    <option value="ja">日本語 (Japanese)</option>
+                    <option value="ko">한국어 (Korean)</option>
+                    <option value="ru">Русский (Russian)</option>
+                    <option value="zh-CN">中文 (Chinese)</option>
+                </select>
+            </div>
+            <div class="status-indicator">
+                <div id="statusDot" class="status-dot"></div>
+                <span id="statusText">ONLINE</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="workspace">
+        <!-- Hologram Area -->
+        <div class="face-container">
+            <div id="hologramContainer" class="hologram-container idle">
+                <svg class="hologram-svg" viewBox="0 0 200 200" id="jarvisCoreBtn">
+                    <!-- Outer Rotating Ring 1 -->
+                    <circle class="rotate-clockwise" cx="100" cy="100" r="85" fill="none" stroke-width="1.5" stroke-dasharray="10 6 4 6" />
+                    <!-- Outer Rotating Ring 2 (Dashed division) -->
+                    <circle class="rotate-counter" cx="100" cy="100" r="75" fill="none" stroke-width="1" stroke-dasharray="30 15 5 15" opacity="0.7" />
+                    <!-- Hex/Grid overlay border (Fixed) -->
+                    <circle cx="100" cy="100" r="65" fill="none" stroke-width="0.75" stroke-dasharray="1 3" opacity="0.5" />
+                    <!-- Inner Tech circular indicators -->
+                    <path class="rotate-clockwise" d="M 50 100 A 50 50 0 0 1 150 100" fill="none" stroke-width="2" stroke-dasharray="15 8" />
+                    <path class="rotate-counter" d="M 55 100 A 45 45 0 0 0 145 100" fill="none" stroke-width="1" stroke-dasharray="40 10" opacity="0.8" />
+                    <!-- Pulsing Core -->
+                    <circle class="pulse-core core-fill" cx="100" cy="100" r="22" opacity="0.9" />
+                    <!-- Inner Core outline -->
+                    <circle class="pulse-core" cx="100" cy="100" r="28" fill="none" stroke-width="1.5" opacity="0.6" />
+                </svg>
+            </div>
+            <div class="face-label" id="stateLabel">SYSTEM IDLE</div>
+        </div>
+
+        <!-- Terminal Console -->
+        <div class="console-panel">
+            <div class="console-header">
+                <span>SYSTEM LOG CONSOLE</span>
+                <span style="color: var(--glow-color); font-size: 11px;">SECURE CONNECTION</span>
+            </div>
+            <div class="console-log" id="consoleLog">
+                <div class="log-bubble system">Jarvis System v2.0 Initialized</div>
+                <div class="log-bubble jarvis">Hello! I am Jarvis, your assistant. Click my core or click the microphone to speak, or start typing below.</div>
+            </div>
+            
+            <!-- Command Inputs -->
+            <div class="input-bar">
+                <button class="btn btn-mic" id="micBtn" title="Speak Command">🎤</button>
+                <input type="text" class="text-input" id="cmdInput" placeholder="Enter command or question..." autocomplete="off">
+                <button class="btn btn-send" id="sendBtn">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        LOGICAL CORE // A.I. ASSISTANT PROTOCOL // ACTIVE // Developed by PALLAB BAG
+    </footer>
+
+</body>
+</html>

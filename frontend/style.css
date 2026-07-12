@@ -1,0 +1,444 @@
+:root {
+    --bg-color: #050b14;
+    --surface-color: rgba(10, 25, 47, 0.7);
+    --border-color: rgba(0, 242, 254, 0.2);
+    --glow-color: #00f2fe;
+    --accent-color: #4facfe;
+    --text-primary: #e2f1ff;
+    --text-secondary: #8892b0;
+    
+    --state-idle-color: #00f2fe;
+    --state-listening-color: #39ff14;
+    --state-thinking-color: #ff9900;
+    --state-speaking-color: #bd00ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.08), transparent 60%),
+        radial-gradient(circle at 10% 80%, rgba(79, 172, 254, 0.05), transparent 40%),
+        linear-gradient(rgba(5, 11, 20, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 11, 20, 0.4) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+}
+
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(5, 11, 20, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    background: rgba(0, 242, 254, 0.05);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 10px var(--glow-color);
+    transition: all 0.3s ease;
+}
+
+/* Language Select styling */
+.lang-select-wrapper {
+    position: relative;
+}
+
+.lang-select {
+    font-family: 'Outfit', sans-serif;
+    background: rgba(10, 25, 47, 0.8);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.lang-select:focus {
+    border-color: var(--glow-color);
+}
+
+/* Main Workspace layout */
+.workspace {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    padding: 30px;
+    overflow: hidden;
+    align-items: center;
+}
+
+/* Holographic Face Area */
+.face-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* SVG Hologram Face styles */
+.hologram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hologram-svg {
+    width: 320px;
+    height: 320px;
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
+    cursor: pointer;
+    transition: filter 0.5s ease;
+}
+
+/* Rotations */
+.rotate-clockwise {
+    transform-origin: center;
+    animation: spinClockwise 25s linear infinite;
+}
+
+.rotate-counter {
+    transform-origin: center;
+    animation: spinCounter 15s linear infinite;
+}
+
+.pulse-core {
+    transform-origin: center;
+    animation: pulseCore 3s ease-in-out infinite;
+}
+
+@keyframes spinClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinCounter {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes pulseCore {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Color transitions driven by Jarvis state classes */
+.hologram-container.idle {
+    --glow-color: var(--state-idle-color);
+}
+.hologram-container.listening {
+    --glow-color: var(--state-listening-color);
+}
+.hologram-container.listening .rotate-clockwise {
+    animation-duration: 8s;
+}
+.hologram-container.listening .rotate-counter {
+    animation-duration: 5s;
+}
+.hologram-container.listening .pulse-core {
+    animation: pulseListening 0.8s ease-in-out infinite;
+}
+
+.hologram-container.thinking {
+    --glow-color: var(--state-thinking-color);
+}
+.hologram-container.thinking .rotate-clockwise {
+    animation-duration: 3s;
+}
+.hologram-container.thinking .rotate-counter {
+    animation-duration: 2s;
+}
+.hologram-container.thinking .pulse-core {
+    animation: pulseThinking 1.5s ease-in-out infinite;
+}
+
+.hologram-container.speaking {
+    --glow-color: var(--state-speaking-color);
+}
+.hologram-container.speaking .pulse-core {
+    animation: pulseSpeaking 0.3s ease-in-out infinite;
+}
+
+@keyframes pulseListening {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+@keyframes pulseThinking {
+    0%, 100% { transform: scale(1.05); opacity: 0.5; }
+    50% { transform: scale(0.9); opacity: 1; }
+}
+@keyframes pulseSpeaking {
+    0%, 100% { transform: scale(1.0); }
+    50% { transform: scale(1.25); }
+}
+
+.hologram-svg circle, .hologram-svg path {
+    stroke: var(--glow-color);
+    transition: stroke 0.5s ease;
+}
+
+.hologram-svg .core-fill {
+    fill: var(--glow-color);
+    transition: fill 0.5s ease;
+}
+
+.face-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--glow-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 25px;
+    text-shadow: 0 0 10px var(--glow-color);
+    transition: all 0.5s ease;
+}
+
+/* Console Side panel (Glassmorphism) */
+.console-panel {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+    max-height: calc(100vh - 180px);
+    overflow: hidden;
+    position: relative;
+}
+
+.console-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.console-log {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.console-log::-webkit-scrollbar {
+    width: 6px;
+}
+.console-log::-webkit-scrollbar-track {
+    background: rgba(10, 25, 47, 0.3);
+}
+.console-log::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+/* Speech bubbles */
+.log-bubble {
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 85%;
+    font-size: 14px;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.log-bubble.user {
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    color: var(--text-primary);
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.log-bubble.jarvis {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.log-bubble.system {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    align-self: center;
+    text-align: center;
+}
+
+/* Command Input Section */
+.input-bar {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    background: rgba(5, 11, 20, 0.9);
+    align-items: center;
+}
+
+.text-input {
+    flex: 1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    background: rgba(10, 25, 47, 0.6);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 18px;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.text-input:focus {
+    border-color: var(--glow-color);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.btn-mic {
+    width: 45px;
+    height: 45px;
+    color: var(--glow-color);
+    background: rgba(0, 242, 254, 0.05);
+    font-size: 20px;
+    border-color: rgba(0, 242, 254, 0.3);
+}
+
+.btn-mic.active {
+    background: var(--state-listening-color);
+    color: #000;
+    border-color: var(--state-listening-color);
+    box-shadow: 0 0 15px var(--state-listening-color);
+}
+
+.btn-send {
+    padding: 0 20px;
+    height: 45px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: #050b14;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+}
+
+.btn-send:hover {
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+/* Footer styling */
+footer {
+    padding: 15px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid rgba(0, 242, 254, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+    .console-panel {
+        min-height: 400px;
+        max-height: 500px;
+    }
+}
