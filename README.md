@@ -221,7 +221,7 @@ fetch(`${API_URL}/chat`)
 - German
 - Japanese
 - Korean
-- Russians
+- Russian
 - Chinese
 
 ---
