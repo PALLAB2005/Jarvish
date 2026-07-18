@@ -297,7 +297,7 @@ Full Stack Developer
 
 💼 LinkedIn: https://linkedin.com/in/yourprofile
 
-📧 Email: your@email.com
+📧 Email: pallabbag001@gmail.com
 
 ---
 
