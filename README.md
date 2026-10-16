@@ -1,4 +1,4 @@
-# 🤖 Jarvis AI Assistant
+# 🤖 Jarvis AI Assistant:
 
 A modern AI-powered voice assistant built with **Python (Flask)** and a beautiful **HTML, CSS, JavaScript** frontend.
 
@@ -6,7 +6,7 @@ Jarvis supports AI chat, voice input, voice output, browser automation, and mult
 
 ---
 
-## ✨ Features
+## ✨ Features:
 
 - 💬 AI Chat Assistant
 - 🎤 Voice Input (Speech Recognition)
