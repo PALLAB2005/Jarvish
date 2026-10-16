@@ -291,7 +291,7 @@ MIT License
 
 Full Stack Developer
 
-🌐 Portfolio: https://yourportfolio.com
+🌐 Portfolio: https://pallab-portfolio-rosy.vercel.app/
 
 💼 LinkedIn: https://www.linkedin.com/in/pallab-bag-816842332/
 
