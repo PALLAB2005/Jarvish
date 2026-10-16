@@ -230,9 +230,7 @@ fetch(`${API_URL}/chat`)
 
 Add screenshots here.
 
-```
-frontend/assets/screenshots/
-```
+
 
 ---
 
