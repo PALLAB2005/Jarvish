@@ -294,7 +294,7 @@ Full Stack Developer
 🌐 Portfolio: https://yourportfolio.com
 
 💼 LinkedIn: www.linkedin.com/in/
-pallab-bag-816842332
+
 
 
 📧 Email: pallabbag001@gmail.com
