@@ -293,7 +293,7 @@ Full Stack Developer
 
 🌐 Portfolio: https://yourportfolio.com
 
-💼 LinkedIn: www.linkedin.com/in/
+💼 LinkedIn: https://www.linkedin.com/in/pallab-bag-816842332/
 
 
 
