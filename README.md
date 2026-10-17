@@ -22,7 +22,7 @@ Jarvis supports AI chat, voice input, voice output, browser automation, and mult
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure:
 
 ```
 Jarvis-AI/
