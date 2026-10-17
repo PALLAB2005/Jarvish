@@ -49,7 +49,7 @@ Jarvis-AI/
 
 ---
 
-# 🚀 Technologies Used this projects
+# 🚀 Technologies Used this projects:
 
 ### Frontend
 
