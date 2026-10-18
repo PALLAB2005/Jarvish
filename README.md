@@ -67,7 +67,7 @@ Jarvis-AI/
 - Requests
 - Python-dotenv
 
-### AI
+### AI:
 
 - OpenAI API
 - DeepSeek API
