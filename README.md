@@ -75,7 +75,7 @@ Jarvis-AI/
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Installation:
 
 ## Clone Repository
 
