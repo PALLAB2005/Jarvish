@@ -234,7 +234,7 @@ Add screenshots here.
 
 ---
 
-# 📈 Roadmap
+# 📈 Roadmap:
 
 - User Authentication
 - Chat History
