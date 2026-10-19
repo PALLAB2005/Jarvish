@@ -89,7 +89,7 @@ cd jarvis-ai
 
 ---
 
-## Install Dependencies
+## Install Dependencies:
 
 ```bash
 pip install -r backend/requirements.txt
