@@ -226,7 +226,7 @@ fetch(`${API_URL}/chat`)
 
 ---
 
-# 📸 Screenshots
+# 📸 Screenshots:
 
 Add screenshots here.
 
