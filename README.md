@@ -182,7 +182,7 @@ fetch(`${API_URL}/chat`)
 
 ---
 
-# 📡 API
+# 📡 API:
 
 ## POST /chat
 
