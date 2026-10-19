@@ -143,7 +143,7 @@ Use Live Server.
 
 # 🌐 Deployment
 
-## Frontend
+## Frontend:
 
 Deploy on
 
