@@ -160,7 +160,7 @@ Deploy on
 
 ---
 
-# 🔧 Configuration
+# 🔧 Configuration:
 
 After deploying backend update
 
