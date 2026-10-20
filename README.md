@@ -80,7 +80,7 @@ Jarvis-AI/
 ## Clone Repository:
 
 ```bash
-git clone https://github.com//jarvis-ai.git
+git clone https://github.com/PALLAB2005/jarvis-ai.git
 ```
 
 ```bash
